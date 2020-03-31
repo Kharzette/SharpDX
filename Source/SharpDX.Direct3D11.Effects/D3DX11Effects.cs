@@ -86,7 +86,7 @@ namespace SharpDX.Direct3D11 {
             }
         }
 
-        [DllImport("runtimes/win7-x86/native/sharpdx_direct3d11_1_effects.dll", EntryPoint = "D3DX11CreateEffectFromMemory")]
+        [DllImport("sharpdx_direct3d11_1_effects_x86.dll", EntryPoint = "D3DX11CreateEffectFromMemory")]
         private static extern SharpDX.Result D3DX11CreateEffectFromMemory_11_1_x86(IntPtr dataPointer,
             IntPtr dataLength,
             int fxFlags,
@@ -94,7 +94,7 @@ namespace SharpDX.Direct3D11 {
             out IntPtr effectOut,
             IntPtr srcName);
 
-        [DllImport("runtimes/win7-x64/native/sharpdx_direct3d11_1_effects.dll", EntryPoint = "D3DX11CreateEffectFromMemory")]
+        [DllImport("sharpdx_direct3d11_1_effects_x64.dll", EntryPoint = "D3DX11CreateEffectFromMemory")]
         private static extern SharpDX.Result D3DX11CreateEffectFromMemory_11_1_x64(IntPtr dataPointer,
             IntPtr dataLength,
             int fxFlags,
