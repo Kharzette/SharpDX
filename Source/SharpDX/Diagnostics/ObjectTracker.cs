@@ -160,15 +160,16 @@ namespace SharpDX.Diagnostics
             }
             return stacktrace;
 #else
-            // Another WTF: To get a stacktrace, we don't have other ways than throwing an exception on PCL. 
-            try
+            //this will break .net standard, but the other way gave a useless stack
+            string	szTrace	="";
+            StackTrace	st	=new StackTrace(true);
+            for(int i=0;i < st.FrameCount;i++)
             {
-                throw new GetStackTraceException();
+                StackFrame	sf	=st.GetFrame(i);
+                szTrace	+="Line: " + sf.GetFileLineNumber() + ", ";
+                szTrace	+="Method: " + sf.GetMethod() + "\n";
             }
-            catch (GetStackTraceException ex)
-            {
-                return ex.StackTrace;
-            }
+            return	szTrace;
 #endif
         }
 
